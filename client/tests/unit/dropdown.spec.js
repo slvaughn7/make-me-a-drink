@@ -12,21 +12,20 @@ describe('DropDown', () => {
             expect(wrapper.contains( 'select' )).toBe(true)
         })
     
-    // SAMPLE TEST LAYOUT FOR DROPDOWN
-    // test(
-    //     'should create option tags for every string in props.options',
-    //     () => {
-    //         const options = [ 'a', 'b', 'c' ]
+    //SAMPLE TEST LAYOUT FOR DROPDOWN
+    
+    test(
+        'should create option tags for every string in props.options',
+         () => {
+            // const options = [ 'Vodka', 'Rum', 'Whiskey','Tequila', 'Gin' ]
 
-    //         ...
-
-    //         <select>
-    //             <option disabled>Gender</option>
-    //             <option value="male">Male</option>
-    //             <option value="f">Female</option>
-    //         </select>
-
-    //         expect(wrapper.contains('option[value=male]'))
-    //     })
+            
+             expect(wrapper.contains('option[value="Rum"]')).toBe(true)
+             expect(wrapper.contains('option[value="Vodka"]')).toBe(true)
+             expect(wrapper.contains('option[value="Whiskey"]')).toBe(true)
+             expect(wrapper.contains('option[value="Gin"]')).toBe(true)
+             expect(wrapper.contains('option[value="Tequila"]')).toBe(true)
+             
+         })
 
   })

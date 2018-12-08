@@ -1,5 +1,11 @@
 <template>
   <select>
+    <option value="Rum">Rum</option>
+    <option value="Whiskey">Whiskey</option>
+    <option value="Vodka">Vodka</option>
+    <option value="Tequila">Vodka</option>
+    <option value="Gin">Vodka</option>
+
   </select>
 </template>
 
