@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="resources/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <DropDown/> 
+ <Index/>
+ 
+
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import DropDown from "./components/DropDown.vue"
+import Index from "./components/Index.vue"
 
 export default {
   name: "app",
-  components: {
-    HelloWorld
+  components:{
+    DropDown, Index 
   }
 };
 </script>
