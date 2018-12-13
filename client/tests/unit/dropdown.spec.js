@@ -17,15 +17,12 @@ describe('DropDown', () => {
     test(
         'should create option tags for every string in props.options',
          () => {
-            // const options = [ 'Vodka', 'Rum', 'Whiskey','Tequila', 'Gin' ]
-
+            const options = [ 'Vodka', 'Rum', 'Whiskey','Tequila', 'Gin' ]
             
-             expect(wrapper.contains('option[value="Rum"]')).toBe(true)
-             expect(wrapper.contains('option[value="Vodka"]')).toBe(true)
-             expect(wrapper.contains('option[value="Whiskey"]')).toBe(true)
-             expect(wrapper.contains('option[value="Gin"]')).toBe(true)
-             expect(wrapper.contains('option[value="Tequila"]')).toBe(true)
-             
+            options.forEach(
+                ( option ) => {
+                    expect(wrapper.contains(`option[value="${ option }"]`)).toBe(true)
+                })
          })
 
   })

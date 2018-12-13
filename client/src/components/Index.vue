@@ -4,26 +4,25 @@
 
 
   <div>
-    <select>
-        <option>Make a selection</option>
-        <option value="Rum">Rum</option>
-        <option value="Whiskey">Whiskey</option>
-        <option value="Vodka">Vodka</option>
-        <option value="Tequila">Tequila</option>
-        <option value="Gin">Gin</option>
-
-      </select>
-
-  <button name="logo" onclick="window.location.href='http://localhost:8080'"><img src="resources/cocktail-icon.png"></button>
-  <button name="makeDrink" onclick="window.location.href='http://localhost:8080/recipes'">Make Me A Drink</button>  
+  <button name="logo" onclick="homepage()"><img src="resources/cocktail-icon.png"></button>
+  <button name:logo v-on:click="'http://localhost:8080/'">Make Me A Drink!</button>
+  <DropDown v-model="alcohol"/>
   </div>
  </template>
 
  <script>
+ import DropDown from "./DropDown.vue"
+
 export default {
   name: "Index",
+  data: () => ({
+    alcohol: undefined
+  }),
   props: {
     msg: String
+  },
+  components: {
+    DropDown
   }
 };
 
