@@ -1,20 +1,31 @@
 <template>
-  <select>
-    <option>Make a selection</option>
-    <option value="Rum">Rum</option>
-    <option value="Whiskey">Whiskey</option>
-    <option value="Vodka">Vodka</option>
-    <option value="Tequila">Tequila</option>
-    <option value="Gin">Gin</option>
-
-  </select>
+  <div>
+    I have: <select v-model="alcohol" v-on:change="onInput($event)">
+      <option selected disabled>Make a selection</option>
+      <option value="Rum">Rum</option>
+      <option value="Whiskey">Whiskey</option>
+      <option value="Vodka">Vodka</option>
+      <option value="Tequila">Tequila</option>
+      <option value="Gin">Gin</option>
+    </select>
+  </div>
 </template>
 
 <script>
 export default {
   name: "DropDown",
-  props: {
+  prop: ['value'],
+  
+  data() {
+    return {
+      alcohol: this.value
+    }
+  },
 
+  methods:{
+    onInput(event) { 
+      return this.$emit('input', this.alcohol)
+    }
   }
 };
 </script>
