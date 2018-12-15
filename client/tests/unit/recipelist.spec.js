@@ -1,7 +1,7 @@
 jest.mock( 'axios' ); import axios from 'axios'
 
 import { shallowMount } from "@vue/test-utils";
-import Recipe from "@/components/Recipe.vue";
+import RecipeList from "@/components/RecipeList.vue";
 
 describe(
   "Recipe Page", 
@@ -22,7 +22,7 @@ describe(
         }))
 
         let element = shallowMount(
-          Recipe,
+          RecipeList,
           { mocks: { $route: { params: { id: drink } }} }
         )
         
@@ -42,7 +42,7 @@ describe(
         }))
 
         let element = shallowMount(
-          Recipe,
+          RecipeList,
           { mocks: { $route: { params: { id: drink } }} }
         )
         

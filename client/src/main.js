@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./App.vue";
 import Index from "./components/Index.vue";
-import Recipe from "./components/Recipe.vue";
+import RecipeList from "./components/RecipeList.vue";
 
 Vue.use(VueRouter);
 
@@ -10,7 +10,7 @@ const routes = [
   { path: "/", component: Index },
   //{ path: "/viewRecipes/:ingredient", component:  },
 
-  { path: "/recipe/:id", component: Recipe }
+  { path: "/recipelist/:id", component: RecipeList }
 ]
 
 const router = new VueRouter({

@@ -1,7 +1,7 @@
 <template>
   <div>
        
-    <router-link v-bind:to="'/recipe/'+ alcohol">
+    <router-link v-bind:to="'/recipelist/'+ alcohol">
       <button>Make Me A Drink!</button>
     </router-link>
     <DropDown v-model="alcohol" />

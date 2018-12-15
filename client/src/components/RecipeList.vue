@@ -18,17 +18,9 @@
 <script>
   import axios from 'axios'
   export default {
-    //el: '#app',
-    name: "Recipe",
-    //props: {
-    //drinkName: String,
-    //drinkImage: ImageData, 
-    //},
+    name: "RecipeList",
     data: function () {
       return {
-        drinkName: '',
-        drinkImage: '',
-        drinkRecipe: '',
         recipes: [],
       }
     },
