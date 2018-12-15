@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div v-if="recipes.length > 0">
-      <h1>Recipes for <span v-text="$route.params[ 'id' ]"></span></h1>
-    </div>
-    <div v-else>
-      <h1>No recipes available for <span v-text="$route.params[ 'id' ]"></span></h1>
-    </div>
+
+    <h1 id="recipes-header" v-if="recipes.length > 0">
+      Recipes for <span v-text="$route.params[ 'id' ]"></span>
+    </h1>
+    <h1 v-else id="no-recipes-header">
+      No recipes available for <span v-text="$route.params[ 'id' ]"></span>
+    </h1>
+
     <div v-for="recipe in recipes" class="recipe">
       <h1>{{ recipe.strDrink }} </h1>
       <img v-bind:src="recipe.strDrinkThumb" v-bind:alt="recipe.strDrink">
@@ -37,13 +39,7 @@
         )
         
         if( !response.data ) return
-        
-        console.log( response.data.drinks )
         this.recipes = (response.data.drinks)
-        let drink = response.data.drinks
-
-        this.drinkName = drink.strDrink
-        this.drinkImage = drink.strDrinkThumb
       }
     },
 
