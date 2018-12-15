@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import DropDown from "./components/DropDown.vue"
 export default {
   name: "app",
+  components: { DropDown }
 };
 </script>
 

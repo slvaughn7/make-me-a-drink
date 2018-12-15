@@ -1,7 +1,10 @@
 <template>
   <div>
     <button name="logo" onclick="homepage()"><img src="resources/cocktail-icon.png"></button>
-    <button name:logo v-on:click="'http://localhost:8080/'">Make Me A Drink!</button>
+]
+<router-link v-bind:to="'/recipe/'+ alcohol">
+    <button>Make Me A Drink!</button>
+</router-link>
     <DropDown v-model="alcohol"/>
   </div>
  </template>
@@ -24,18 +27,3 @@ export default {
 
 </script>
 
-<script>
-  function makedrink (){
-    window.location = 'http://localhost:8080/recipe';
-
-  }
-
-    function homepage (){
-    window.location = 'http://localhost:8080/';
-
-  }
-</script>
-
-
- 
- 
