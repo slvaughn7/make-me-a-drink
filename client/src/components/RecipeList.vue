@@ -9,8 +9,10 @@
     </h1>
 
     <div v-for="recipe in recipes" class="recipe">
+      <router-link v-bind:to="'/recipe/' + recipe.idDrink">
       <h1>{{ recipe.strDrink }} </h1>
       <img v-bind:src="recipe.strDrinkThumb" v-bind:alt="recipe.strDrink">
+      </router-link>
     </div>
   </div>
 </template>

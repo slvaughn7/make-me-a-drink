@@ -1,0 +1,77 @@
+<template>
+  <div>
+      <h1 id="drink-name" v-text="drinkName"></h1>
+      <img id="drink-image" v-bind:src="image">
+      <aside>
+        <ul>
+          <li v-for="ingredient in ingredients">
+            <span v-text="ingredient.ingredient"></span> | <span v-text="ingredient.measure"></span>
+          </li>
+        </ul>
+      </aside>
+      <section id="drink-instructions" v-text="instructions"></section>
+
+  </div>
+</template>
+
+<script>
+  import axios from 'axios'
+  export default {
+    name: "Recipe",
+    data: function () {
+      return {
+        drinkName: undefined,
+        image: undefined,
+        ingredients:[],
+        instructions: undefined
+      }
+    },
+    methods: {
+      getRecipe: async function (id) {
+        let response = await axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+        )
+        
+        if( !response.data || !response.data.drinks || response.data.drinks.length == 0) return
+        
+        let drink = response.data.drinks[0]
+        
+        this.drinkName = drink.strDrink
+        this.image = drink.strDrinkThumb
+        this.instructions = drink.strInstructions
+        this.ingredients = [
+          { ingredient: drink.strIngredient1, measure: drink.strMeasure1 },
+          { ingredient: drink.strIngredient2, measure: drink.strMeasure2 },
+          { ingredient: drink.strIngredient3, measure: drink.strMeasure3 },
+          { ingredient: drink.strIngredient4, measure: drink.strMeasure4 },
+          { ingredient: drink.strIngredient5, measure: drink.strMeasure5 },
+          { ingredient: drink.strIngredient6, measure: drink.strMeasure6 },
+          { ingredient: drink.strIngredient7, measure: drink.strMeasure7 },
+          { ingredient: drink.strIngredient8, measure: drink.strMeasure8 },
+          { ingredient: drink.strIngredient9, measure: drink.strMeasure9 },
+          { ingredient: drink.strIngredient10, measure: drink.strMeasure10 },
+          { ingredient: drink.strIngredient11, measure: drink.strMeasure11 },
+          { ingredient: drink.strIngredient12, measure: drink.strMeasure12 },
+          { ingredient: drink.strIngredient13, measure: drink.strMeasure13 },
+          { ingredient: drink.strIngredient14, measure: drink.strMeasure14 },
+          { ingredient: drink.strIngredient15, measure: drink.strMeasure15 },
+
+        ].filter( item => item.ingredient && item.measure )
+       }
+    },
+
+    mounted() {
+      let id = this.$route.params[ 'id' ]
+      this.getRecipe(id); // or trigger by click or smth else
+    }
+
+  }
+</script>
+
+
+
+
+
+<style scoped>
+
+</style>
