@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <router-link to="/">
-      <button name="logo"> <img src="resources/cocktail-icon.png"></button>
+    <router-link id="logo-button" to="/">
+      <button id="logo"> <img src="resources/cocktail-icon.png"></button>
     </router-link>
 
     <router-view></router-view>
