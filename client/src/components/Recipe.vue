@@ -3,9 +3,9 @@
     <img id="drink-image" v-bind:src="image">
 
     <aside id="drink-ingredients">
-      <ul>
+      <ul style="text-align: left;">
         <li v-for="ingredient in ingredients">
-          <span v-text="ingredient.ingredient"></span> | <span v-text="ingredient.measure"></span>
+          <span v-text="ingredient.ingredient"></span> <span v-if="ingredient.measure" v-text="', ' +ingredient.measure"></span>
         </li>
       </ul>
     </aside>
@@ -56,7 +56,7 @@
           { ingredient: drink.strIngredient14, measure: drink.strMeasure14 },
           { ingredient: drink.strIngredient15, measure: drink.strMeasure15 },
 
-        ].filter( item => item.ingredient && item.measure )
+        ].filter( item => item.ingredient )
        }
     },
 
@@ -85,10 +85,14 @@
   }
 
   #drink-ingredients {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     grid-area: ingredients;
   }
 
   #drink-instructions {
+    margin-top: 15px;
     grid-area: instructions;
   }
 </style>
