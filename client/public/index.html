@@ -7,7 +7,7 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>make-me-a-drink</title>
   </head>
-  <body>
+  <body style="margin: 0px; padding: 0px;">
 
     <noscript>
       <strong>We're sorry but make-me-a-drink doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
@@ -17,27 +17,4 @@
     </div>
     <!-- built files will be auto injected -->
   </body>
-
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-<script>
-
-  const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin";
-  axios.get(url).then(response => {
-            console.log(response.data.drinks[0].strDrink)
-          });
-         
-
-
-  </script>
-
- 
-
-
-
-
-
-
 </html>

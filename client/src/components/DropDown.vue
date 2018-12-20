@@ -1,6 +1,7 @@
 <template>
   <div>
-    I have: <select v-model="alcohol" v-on:change="onInput($event)">
+    Make Me a Drink with: 
+    <select v-model="alcohol" v-on:change="onInput($event)">
       <option selected disabled>Make a selection</option>
       <option value="Rum">Rum</option>
       <option value="Whiskey">Whiskey</option>
@@ -32,6 +33,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+select {
+  border: solid 2px #222;
+  font-size: 1.25rem;
+}
 h3 {
   margin: 40px 0 0;
 }

@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: "/", component: Index },
   { path: "/recipelist/:id", component: RecipeList },
-  { path: "/recipe/:id", component: Recipe }
+  { path: "/recipe/:id/:name", component: Recipe }
 ]
 
 const router = new VueRouter({

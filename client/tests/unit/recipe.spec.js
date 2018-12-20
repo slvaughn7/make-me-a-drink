@@ -36,22 +36,6 @@ describe(
       }
     )
 
-
-    it(
-      'should have drink name in the header',
-      async () => {
-        let id = 13060
-        configureAxiosSpy()
-
-        let element = createNewComponent(id)
-
-        await new Promise(resolve => setTimeout(resolve, 500))
-
-        expect(element.contains('#drink-name')).toBeTruthy()
-        expect(element.find('#drink-name').text()).toEqual('some-drink')
-      })
-
-
     it(
       'should have drink image',
       async () => {

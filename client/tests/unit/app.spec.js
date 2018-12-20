@@ -4,7 +4,10 @@ import app from "@/App.vue";
 
 describe("App.vue", () => {
   it("drink logo click directs back to homepage", () => {
-    let element = shallowMount(app)
+    let element = shallowMount(
+      app,
+      { mocks: { $route: { path: '/' } } }
+    )
     const link = element.find('#logo-button')
     expect(link.find("#logo")).toBeTruthy()
     expect(link.hasAttribute('to', '/'))

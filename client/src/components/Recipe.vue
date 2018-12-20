@@ -1,16 +1,16 @@
 <template>
-  <div>
-      <h1 id="drink-name" v-text="drinkName"></h1>
-      <img id="drink-image" v-bind:src="image">
-      <aside>
-        <ul>
-          <li v-for="ingredient in ingredients">
-            <span v-text="ingredient.ingredient"></span> | <span v-text="ingredient.measure"></span>
-          </li>
-        </ul>
-      </aside>
-      <section id="drink-instructions" v-text="instructions"></section>
+  <div page>
+    <img id="drink-image" v-bind:src="image">
 
+    <aside id="drink-ingredients">
+      <ul>
+        <li v-for="ingredient in ingredients">
+          <span v-text="ingredient.ingredient"></span> | <span v-text="ingredient.measure"></span>
+        </li>
+      </ul>
+    </aside>
+
+    <section id="drink-instructions" v-text="instructions"></section>
   </div>
 </template>
 
@@ -68,10 +68,27 @@
   }
 </script>
 
-
-
-
-
 <style scoped>
+  [page] {
+    display: grid;
 
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas:
+      "image ingredients"
+      "instructions instructions";
+  }
+
+  #drink-image {
+    grid-area: image;
+    max-width: 300px;
+  }
+
+  #drink-ingredients {
+    grid-area: ingredients;
+  }
+
+  #drink-instructions {
+    grid-area: instructions;
+  }
 </style>
