@@ -2,7 +2,7 @@
   <div id="my-app">
     <nav>
       <router-link id="logo-button" to="/">
-        <button id="logo"> <img src="resources/cocktail-icon.png"></button>
+        <button id="logo"> <img src="resources/martini.png"></button>
       </router-link>
       <span id="nav-header">
         &nbsp;{{ getHeader() }}
@@ -41,6 +41,11 @@ export default {
 
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 nav {
   background-color: #333;
   display: flex;
@@ -48,12 +53,23 @@ nav {
     justify-content: center;
     align-items: center;
   font-family: Lobster;
-  font-size: 1.75rem;
+  font-size: 2.75rem;
   color: #FAFAFA;
+}
+
+#logo {
+  background-color: transparent;
+  border: none;
+  max-width: 80px;
+  max-height: 80px;
+  padding: 7px;
+
+  cursor: pointer;
 }
 
 #nav-header {
   text-align: center;
+  flex: 1;
 }
 
 main {

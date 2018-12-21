@@ -11,6 +11,12 @@
     </aside>
 
     <section id="drink-instructions" v-text="instructions"></section>
+
+    <section id="buttons">
+      <button id="back-button" v-on:click="goBack()">
+        Back to Search Results
+      </button>
+    </section>
   </div>
 </template>
 
@@ -27,6 +33,11 @@
       }
     },
     methods: {
+      goBack () {
+        window.history.length > 1
+          ? this.$router.go(-1)
+          : this.$router.push('/')
+      },
       getRecipe: async function (id) {
         let response = await axios.get(
           `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -69,14 +80,55 @@
 </script>
 
 <style scoped>
+  #back-button {
+    border: 3px solid rgba(255, 255, 55, 1);
+    border-radius: 5px;
+    font-size: 1.25rem;
+
+    font-family: Avenir;
+    width: 100%;
+    height: 100%;
+
+    box-shadow: 2px 2px 10px rgba( 0, 0, 0, 0.15 );
+
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  #back-button:hover {
+    box-shadow: 
+      2px 2px 25px rgba(0, 0, 0, 0.13),
+      2px 2px 25px rgba(255, 255, 55, 1);
+  }
+
+  @media(max-width:500px) {
+    [page] {
+      display: flex !important;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+  }
+  
   [page] {
     display: grid;
 
-    grid-template-columns: 350px 1fr;
-    grid-template-rows: 3fr 1fr;
+    margin: 20px;
+    padding: 15px;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+    box-shadow: 2px 2px 15px rgba( 0, 0, 0, 0.3 );
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 1fr .5fr;
     grid-template-areas:
       "image ingredients"
-      "instructions instructions";
+      "instructions instructions"
+      "buttons buttons";
+  }
+
+  #buttons {
+    grid-area: buttons;
   }
 
   #drink-image {

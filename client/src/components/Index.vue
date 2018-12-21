@@ -1,6 +1,6 @@
 
 <template>
-  <div page>
+  <div index-page>
     <h1 id="header">
       Drink Recipes for the DIY Bartender
     </h1>
@@ -14,6 +14,7 @@
     </div>
     
     <router-link id="navigate" v-if="alcohol" v-bind:to="'/recipelist/'+ alcohol">
+
     <button id="mix-button">
       Mix it <strong>UP</strong>
     </button>
@@ -39,7 +40,7 @@
 </script>
 
 <style>
-  [page] {
+  [index-page] {
     margin: 20px;
     padding: 15px;
     background-color: #FAFAFA;
@@ -87,6 +88,14 @@
     font-family: Avenir;
     width: 100%;
     height: 100%;
+
+    transition-duration: 0.3s;
+    cursor: pointer;
   }
 
+  #mix-button:hover {
+    box-shadow: 
+      2px 2px 25px rgba(0, 0, 0, 0.13),
+      2px 2px 25px rgba(255, 255, 55, 1);
+  }
 </style>
