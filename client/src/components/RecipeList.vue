@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1 v-if="recipes.length == 0" id="no-recipes-header">
-      No recipes available for <span v-text="$route.params[ 'id' ]"></span>
+      Loading Recipes for <span v-text="$route.params[ 'id' ]"></span>
+      <div id="loading-animation">
+        <img src="/resources/shaker.gif"/>
+      </div>
     </h1>
 
     <div id="recipe-list">
@@ -52,6 +55,16 @@
 
     border-radius: 3px;
     box-shadow: 2px 2px 15px rgba( 0, 0, 0, 0.3 );
+  }
+
+  #loading-animation {
+    max-width: 300px;
+    background-color: #9ED45D;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    border-radius: 50%;
+    overflow: hidden;
   }
 
   #recipe-list {
